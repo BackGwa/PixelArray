@@ -218,7 +218,8 @@ dialog-close {
     transition: 0.1s ease-in-out;
 }
 
-dialog-close-label {
+dialog-close-label,
+dialog-btn-label {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -229,18 +230,48 @@ dialog-close-label {
     transition: 0.1s ease-in-out;
 }
 
-dialog-close:hover {
+dialog-btn:hover, dialog-close:hover {
     border: 1px solid #00ff00A0;
 }
 
-dialog-close:hover dialog-close-label {
+dialog-close:hover dialog-close-label, dialog-btn:hover dialog-btn-label {
     color: #00ff00CF;
     font-size: 46px;
 }
 
-dialog-close:hover dialog-close-label::after {
+dialog-close:hover dialog-close-label::after, dialog-btn:hover dialog-btn-label::after {
     content: " ↦";
     color: #00ff00CF;
+}
+
+input-label {
+    color: #00ff00CF;
+    font-size: 64px;
+}
+
+input {
+    width: calc(100% - 6px);
+    height: 290px;
+    background: none;
+    outline: none;
+    border: 1px solid #ffffff40;
+    color: #00ff00CF;
+    font-size: 128px;
+    transition: 0.1s ease-in-out;
+    font-family: 'clacon2';
+}
+
+input:hover {
+    border: 1px solid #00ff00A0;
+}
+
+dialog-btn {
+    position: absolute;
+    width: calc(100% - 2px);
+    height: 72px;
+    bottom: 0;
+    border: 1px solid #ffffff40;
+    transition: 0.1s ease-in-out;
 }
 
 dialog-content {
@@ -255,13 +286,13 @@ dialog-content {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
 }
 
 dialog-content::-webkit-scrollbar {
     display: none;
 }
-  
-  
 
 content-scroll {
     width: 100%;

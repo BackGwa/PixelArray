@@ -40,14 +40,22 @@ function remove_item() {
 }
 
 function load() {
-    /*
-    document.querySelector("dialog-title").innerHTML = `$ LOAD<br>$ <cli-cursor></cli-cursor>`;
+    
+    document.querySelector("dialog-title").innerHTML = `$ LOAD<br>$ INSERT ARRAY`;
     document.querySelector("dialog-area").classList.remove("hidden-area");
-    document.querySelector("dialog-content").innerHTML = "";
-    */
+    document.querySelector("dialog-content").innerHTML = `
+    <input type="text" id="varr">
+    <dialog-btn onclick="load_call()">
+        <dialog-btn-label>$ SUBMIT</dialog-btn-label>
+    </dialog-btn>
+    `;
+    
+}
+
+function load_call() {
     inx = 0;
-    varr_full = prompt("INSERT");
-    remove_item()
+    remove_item();
+    varr_full = document.querySelector("#varr").value;
     varr_Y = varr_full.split(",  ");
     varr_Y.forEach(item => {
         varr_X = item.split(", ");
@@ -58,6 +66,7 @@ function load() {
             inx++;
         });
     });
+    close_dialog();
 }
 
 function copy() {
