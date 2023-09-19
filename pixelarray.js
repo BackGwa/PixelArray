@@ -40,9 +40,24 @@ function remove_item() {
 }
 
 function load() {
+    /*
     document.querySelector("dialog-title").innerHTML = `$ LOAD<br>$ <cli-cursor></cli-cursor>`;
     document.querySelector("dialog-area").classList.remove("hidden-area");
     document.querySelector("dialog-content").innerHTML = "";
+    */
+    inx = 0;
+    varr_full = prompt("INSERT");
+    remove_item()
+    varr_Y = varr_full.split(",  ");
+    varr_Y.forEach(item => {
+        varr_X = item.split(", ");
+        varr_X.forEach(inner_item => {
+            result = inner_item.replace(/{/g, "").replace(/}/g, "").replace(/ /g, "");
+            dot_item = document.querySelectorAll("dot-item");
+            if(result == "1") dot_item[inx].classList.add("fill");
+            inx++;
+        });
+    });
 }
 
 function copy() {
@@ -66,7 +81,7 @@ function copy() {
         if(i == 31)
             result_array += (`{${content}}`);
         else
-            result_array += (`{${content}}, <br>`);
+            result_array += (`{${content}},  <br>`);
         content = [];
     }
 
