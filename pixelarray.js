@@ -11,8 +11,12 @@ function create_dot_item(){
 
     dot_row.forEach(item => {
         for (var i = 0; i < 32; i++) {
-            item.innerHTML += "<dot-item></dot-item>";
+            item.innerHTML += "<dot-item id='f'></dot-item>";
         }
+    });
+
+    f = document.querySelectorAll("#f");
+    f.forEach(item => {
         item.addEventListener("click", item_fill);
     });
 }
