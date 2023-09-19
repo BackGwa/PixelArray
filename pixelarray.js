@@ -43,13 +43,13 @@ function copy() {
             idx++;
         }
         if(i == 31)
-            result_array += (`[${content}]`);
+            result_array += (`{${content}}`);
         else
-            result_array += (`[${content}], `);
+            result_array += (`{${content}}, `);
         content = [];
     }
 
-    result_array = `[${result_array}]`
+    result_array = `{${result_array}}`
 
     let tempInput = document.createElement("input")
     tempInput.value = result_array;
