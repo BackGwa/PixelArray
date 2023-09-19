@@ -18,14 +18,17 @@ function create_dot_item(){
     f = document.querySelectorAll("#f");
     f.forEach(item => {
         item.addEventListener("click", item_fill);
+        item.addEventListener("mouseover", item_fill);
     });
 }
 
 function item_fill(e) {
-    if(!e.target.classList.contains("fill")) {
-        e.target.classList.add("fill");
-    } else {
-        e.target.classList.remove("fill");
+    if(e.buttons >= 1 || e.type == "click") {
+        if(!e.target.classList.contains("fill")) {
+            e.target.classList.add("fill");
+        } else {
+            e.target.classList.remove("fill");
+        }
     }
 }
 
