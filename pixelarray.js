@@ -32,7 +32,21 @@ function item_fill(e) {
     }
 }
 
+function remove_item() {
+    f = document.querySelectorAll("#f");
+    f.forEach(item => {
+        item.classList.remove("fill");
+    });
+}
+
+function load() {
+    document.querySelector("dialog-title").innerHTML = `$ LOAD<br>$ <cli-cursor></cli-cursor>`;
+    document.querySelector("dialog-area").classList.remove("hidden-area");
+    document.querySelector("dialog-content").innerHTML = "";
+}
+
 function copy() {
+
     result_array = "";
     content = "";
     idx = 0;
@@ -52,14 +66,20 @@ function copy() {
         if(i == 31)
             result_array += (`{${content}}`);
         else
-            result_array += (`{${content}}, `);
+            result_array += (`{${content}}, <br>`);
         content = [];
     }
 
-    result_array = `{${result_array}}`
+    result_array = `{<br>${result_array}<br>}`
 
-    let tempInput = document.createElement("input")
-    tempInput.value = result_array;
+    document.querySelector("dialog-title").innerHTML = `$ COPY<br>COPY SUCCESS<cli-cursor></cli-cursor>`;
+    document.querySelector("dialog-area").classList.remove("hidden-area");
+    document.querySelector("dialog-content").innerHTML = `
+    <content-scroll>${result_array}</content-scroll>
+    `
+
+    let tempInput = document.createElement("textarea");
+    tempInput.value = result_array.replace(/<br>/g, `\n`);
 
     document.body.appendChild(tempInput);
     tempInput.select();
@@ -67,4 +87,22 @@ function copy() {
     document.body.removeChild(tempInput);
 }
 
-create_dot()
+function close_dialog() {
+    document.querySelector("dialog-area").classList.add("hidden-area");
+}
+
+setInterval(function() {
+    cli = document.querySelectorAll("cli-cursor")
+
+    cli.forEach(item => {
+        item.innerHTML = "";
+    });
+
+    setTimeout(function() {
+        cli.forEach(item => {
+            item.innerHTML = "▁";
+        });
+    }, 500);
+}, 1000);
+
+create_dot();

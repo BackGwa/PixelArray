@@ -5,13 +5,50 @@
     <meta charset="UTF-8">
     <title>PixelArray</title>
     <link rel="stylesheet" href="./style.css">
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-    <dot-area></dot-area>
-    <button onclick="copy()">
-        배열 복사
-    </button>
+    <cli-interface>
+        <cli-title>
+            BackGwa PixelArray (Version 2023. 09. 20)<br>
+            Draw pixels here<cli-cursor></cli-cursor>
+        </cli-title>
+
+        <dot-area>
+        </dot-area>
+
+        <button-area>
+
+            <button-item onclick="load()">
+                <item-label>$ LOAD</item-label>
+            </button-item>
+
+            <button-item onclick="copy()">
+                <item-label>$ COPY</item-label>
+            </button-item>
+
+            <button-item onclick="remove_item()">
+                <item-label>$ RESET</item-label>
+            </button-item>
+
+        </button-area>
+    </cli-interface>
+
+    <dialog-area class="hidden-area">
+        <dialog-box>
+            <dialog-title>
+            </dialog-title>
+            <dialog-content>
+            </dialog-content>
+            <dialog-close onclick="close_dialog()">
+                <dialog-close-label>$ EXIT</dialog-close-label>
+            </dialog-close>
+        </dialog-box>
+    </dialog-area>
+
     <script src="./pixelarray.js"></script>
 </body>
 
