@@ -12,7 +12,7 @@ dot-area {
     transform: translate(-50%, -50%);
     width: 768px;
     height: 768px;
-    background: #000000AF;
+    background: #000000F0;
     border: 1px rgb(0, 0, 0) solid;
     display: flex;
     flex-direction: column;
@@ -27,14 +27,14 @@ dot-row {
 }
 
 dot-item {
-    width: 24px;
-    height: 24px;
-    border: rgba(0, 0, 0, 0.25) 1px solid;
+    width: 22px;
+    height: 22px;
+    border: #ffffff10 1px solid;
 }
 
 .fill {
     background: white;
-    border: rgba(0, 0, 0, 0.1) 1px solid;
+    border: transparent 1px solid;
 }
 
 button {
