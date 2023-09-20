@@ -152,7 +152,11 @@ function copy() {
     for (var i = 0; i < 32; i++) {
         for (var j = 0; j < 32; j++) {
             if(dot_item[idx].classList.contains("atc")) {
-                v = dot_item[idx].classList[1].substr(-1, 1);
+                try {
+                    v = dot_item[idx].classList[1].substr(-1, 1);
+                } catch {
+                    v = 0;
+                }
             } else v = 0;
             
             if(j == 0)
