@@ -40,7 +40,6 @@ function remove_item() {
 }
 
 function load() {
-    
     document.querySelector("dialog-title").innerHTML = `$ LOAD<br>$ INSERT ARRAY`;
     document.querySelector("dialog-area").classList.remove("hidden-area");
     document.querySelector("dialog-content").innerHTML = `
@@ -49,23 +48,40 @@ function load() {
         <dialog-btn-label>$ SUBMIT</dialog-btn-label>
     </dialog-btn>
     `;
-    
+}
+
+function draw(result, dot_item, index) {
+    setTimeout(() => {
+        if(index != 0) {
+            setTimeout(() => {
+            dot_item[index - 1].classList.replace("fill_g", "fill");
+            }, index * 1);
+        }
+        if(result == "1")
+            dot_item[index].classList.add("fill_g");
+    }, index * 2);
 }
 
 function load_call() {
     inx = 0;
     remove_item();
+    document.querySelector("cli-interface").classList.add("disable");
+
     varr_full = document.querySelector("#varr").value;
     varr_Y = varr_full.split(",  ");
-    varr_Y.forEach(item => {
+    varr_Y.forEach((item, index1) => {
         varr_X = item.split(", ");
-        varr_X.forEach(inner_item => {
+        varr_X.forEach((inner_item, index2)=> {
             result = inner_item.replace(/{/g, "").replace(/}/g, "").replace(/ /g, "");
             dot_item = document.querySelectorAll("dot-item");
-            if(result == "1") dot_item[inx].classList.add("fill");
-            inx++;
+            draw(result, dot_item, Math.abs(31 - index2 - 31) + index1 * 32);
         });
     });
+
+    setTimeout(() => {
+        document.querySelector("cli-interface").classList.remove("disable");
+    }, 2048);
+
     close_dialog();
 }
 
