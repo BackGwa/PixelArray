@@ -40,7 +40,7 @@ function remove_item() {
 
     f = document.querySelectorAll("#f");
     f.forEach(item => {
-        item.classList.remove("fill");
+        item.classList.remove("c0");
     });
 }
 
@@ -62,19 +62,12 @@ function draw(result, dot_item, index) {
     setTimeout(() => {
         if(index == 1023) {
             setTimeout(() => {
-                dot_item[index].classList.replace("fill_g", "c0");
                 enable = true;
             }, index * 1);
         }
 
-        if(index != 0) {
-            setTimeout(() => {
-                dot_item[index - 1].classList.replace("fill_g", "c0");
-            }, index * 1);
-        }
-
         if(result == "1") {
-            dot_item[index].classList.add("fill_g");
+            dot_item[index].classList.add("c0");
         }
 
         if(result == "2") {
@@ -85,7 +78,7 @@ function draw(result, dot_item, index) {
             playsx(index);
         }
 
-    }, index * 2);
+    }, index * 1);
 }
 
 function load_call() {
