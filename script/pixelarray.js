@@ -27,7 +27,7 @@ function create_dot_item(){
 document.oncontextmenu = (e) => {
     if (e.target.classList.contains("atc") && e.buttons >= 2) {
         v = parseInt(e.target.classList[1].substr(-1, 1)) + 1;
-        if (v > 8) {
+        if (v > 7) {
             v = 1;
         }
         e.target.classList.replace(e.target.classList[1], `c${v}`);
@@ -41,7 +41,7 @@ function item_fill(e) {
             e.target.classList.add("atc");
             e.target.classList.add("c1");
         } else {
-            for(var i = 0; i < 8; i++) {
+            for(var i = 0; i < 7; i++) {
                 e.target.classList.remove(`c${i + 1}`);
             }
             e.target.classList.remove("atc");
@@ -53,7 +53,7 @@ function remove_item() {
     playse('ckse');
     f = document.querySelectorAll("#f");
     f.forEach(item => {
-        for(var i = 0; i < 8; i++) {
+        for(var i = 0; i < 7; i++) {
             item.classList.remove(`c${i + 1}`);
         }
     });

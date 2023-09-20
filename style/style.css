@@ -100,7 +100,7 @@ dot-item {
 }
 
 .c3 {
-    background: orange;
+    background: green;
     border: transparent 1px solid;
 }
 
@@ -110,22 +110,17 @@ dot-item {
 }
 
 .c5 {
-    background: green;
-    border: transparent 1px solid;
-}
-
-.c6 {
     background: blue;
     border: transparent 1px solid;
 }
 
-.c7 {
-    background: navy;
+.c6 {
+    background: magenta;
     border: transparent 1px solid;
 }
 
-.c8 {
-    background: purple;
+.c7 {
+    background: cyan;
     border: transparent 1px solid;
 }
 
