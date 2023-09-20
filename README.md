@@ -23,3 +23,16 @@
 <br>
 
 ---
+
+### 예제 코드
+```c
+#include "PixelArray.h"
+
+int main() {
+    int arr[32][32] = {...};    // 이 곳에 복사한 배열을 삽입합니다.
+
+    PixelView(arr, '■');        // 매개변수로 배열과 문자를 받고 출력합니다.
+
+    return 0;
+}
+```
