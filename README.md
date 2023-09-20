@@ -2,10 +2,12 @@
 
 <br>
 
-<img src="./res/logo.png" width="400px">
+<img src="./res/logo.png" width="500px">
 
-## **PixelArray**
-32x32 픽셀을 그려서 C언어에서 사용할 수 있는 배열로 변환할 수 있는 멋진 사이트
+<br>
+
+32x32 픽셀을 C언어 배열로 변환할 수 있는 툴
+<br>
 
 </div>
 
