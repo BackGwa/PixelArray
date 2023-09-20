@@ -1,5 +1,9 @@
 <div align="center">
 
+<br>
+
+<img src="./res/logo.png" width="400px">
+
 ## **PixelArray**
 32x32 픽셀을 그려서 C언어에서 사용할 수 있는 배열로 변환할 수 있는 멋진 사이트
 
