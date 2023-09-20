@@ -231,7 +231,7 @@ setInterval(function() {
 create_dot();
 
 function playse(type) {
-    document.querySelector("#se").src = `./${type}.mp3`;
+    document.querySelector("#se").src = `./sounds/${type}.mp3`;
     document.querySelector("#se").play();
 }
 
@@ -239,7 +239,7 @@ function playsx(idx) {
     sx = document.createElement("audio");
 
     sx.setAttribute('loop', ``);
-    sx.setAttribute('src', `./drawse.mp3`);
+    sx.setAttribute('src', `./sounds/drawse.mp3`);
     sx.setAttribute('id', `sx${idx}`);
     sx.setAttribute('class', `sxaudio`);
 
