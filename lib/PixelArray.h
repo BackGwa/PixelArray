@@ -15,13 +15,10 @@ const char *COLOR[] = {BASIC, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN};
 void PixelView(int Pixel[32][32], char Draw_char[]) {
     for(int i = 0; i < 32; i++) {
         for(int j = 0; j < 32; j++) {
-            if(Pixel[i][j] >= 1) {
-                printf("%s", COLOR[Pixel[i][j] - 1]);
-                printf("%s", Draw_char);
-                printf("%s", BASIC);
-            } else {
+            if(Pixel[i][j] >= 1)
+                printf("%s%s%s", COLOR[Pixel[i][j] - 1], Draw_char, BASIC);
+            else
                 printf(" ");
-            }
         }
         printf("\n");
     }
