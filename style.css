@@ -89,8 +89,43 @@ dot-item {
     border: #ffffff1A 1px solid;
 }
 
-.c0 {
+.c1 {
     background: white;
+    border: transparent 1px solid;
+}
+
+.c2 {
+    background: red;
+    border: transparent 1px solid;
+}
+
+.c3 {
+    background: orange;
+    border: transparent 1px solid;
+}
+
+.c4 {
+    background: yellow;
+    border: transparent 1px solid;
+}
+
+.c5 {
+    background: green;
+    border: transparent 1px solid;
+}
+
+.c6 {
+    background: blue;
+    border: transparent 1px solid;
+}
+
+.c7 {
+    background: navy;
+    border: transparent 1px solid;
+}
+
+.c8 {
+    background: purple;
     border: transparent 1px solid;
 }
 

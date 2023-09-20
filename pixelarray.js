@@ -24,23 +24,38 @@ function create_dot_item(){
     });
 }
 
+document.oncontextmenu = (e) => {
+    if (e.target.classList.contains("atc") && e.buttons >= 2) {
+        v = parseInt(e.target.classList[1].substr(-1, 1)) + 1;
+        if (v > 8) {
+            v = 1;
+        }
+        e.target.classList.replace(e.target.classList[1], `c${v}`);
+    }
+    return false;
+}
+
 function item_fill(e) {
-    if(e.buttons >= 1 || e.type == "click") {
-        if(!e.target.classList.contains("c0")) {
-            e.target.classList.add("c0");
+    if(e.buttons == 1 || e.type == "click") {
+        if(!e.target.classList.contains("atc")) {
+            e.target.classList.add("atc");
+            e.target.classList.add("c1");
         } else {
-            e.target.classList.remove("c0");
+            for(var i = 0; i < 8; i++) {
+                e.target.classList.remove(`c${i + 1}`);
+            }
+            e.target.classList.remove("atc");
         }
     }
 }
 
 function remove_item() {
-
     playse('ckse');
-
     f = document.querySelectorAll("#f");
     f.forEach(item => {
-        item.classList.remove("c0");
+        for(var i = 0; i < 8; i++) {
+            item.classList.remove(`c${i + 1}`);
+        }
     });
 }
 
@@ -63,15 +78,22 @@ function draw(result, dot_item, index) {
         if(index == 1023) {
             setTimeout(() => {
                 enable = true;
-            }, index * 1);
+            }, 48);
         }
 
-        if(result == "1") {
-            dot_item[index].classList.add("c0");
+        if(parseInt(result) >= 1) {
+            if(!dot_item[index].classList.contains("atc")) {
+                dot_item[index].classList.add("atc");
+            }
+            dot_item[index].classList.add(`c${result}`);
         }
 
-        if(result == "2") {
-            dot_item[index].classList.remove("c0");
+        if(result == "-1") {
+            if(dot_item[index].classList.contains("c1") &&
+                dot_item[index].classList.contains("atc")) {
+                dot_item[index].classList.remove("atc");
+            }
+            dot_item[index].classList.remove("c1");
         }
 
         if((index + 1) % 16 == 0) {
@@ -113,7 +135,7 @@ function load_call() {
             clearInterval(T);
             playse("btnse");
         }
-    }, 256);
+    }, 48);
 
     close_dialog();
 }
@@ -129,8 +151,9 @@ function copy() {
 
     for (var i = 0; i < 32; i++) {
         for (var j = 0; j < 32; j++) {
-            if(dot_item[idx].classList.contains("c0")) v = 1;
-            else v = 0;
+            if(dot_item[idx].classList.contains("atc")) {
+                v = dot_item[idx].classList[1].substr(-1, 1);
+            } else v = 0;
             
             if(j == 0)
                 content += `${v}`;
@@ -168,8 +191,8 @@ function revert() {
     dot_item = document.querySelectorAll("dot-item");
 
     dot_item.forEach((item, index) => {
-        if(item.classList.contains("c0")) {
-            draw("2", dot_item, index);
+        if(item.classList.contains("c1")) {
+            draw("-1", dot_item, index);
         } else {
             draw("1", dot_item, index)
         };
@@ -182,7 +205,7 @@ function revert() {
             clearInterval(T);
             playse("btnse");
         }
-    }, 256);
+    }, 48);
     
 }
 
@@ -226,8 +249,4 @@ function playsx(idx) {
     setTimeout(() => {
         document.getElementById(`sx${idx}`).remove();
     }, 500);
-}
-
-document.oncontextmenu = () => {
-    return false;
 }
