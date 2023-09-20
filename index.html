@@ -11,10 +11,11 @@
 </head>
 
 <body>
+    <audio src="./btnse.mp3" id="se"></audio>
     <cli-interface>
         <cli-title>
             BackGwa PixelArray (Version 2023. 09. 20)<br>
-            Draw pixels here<cli-cursor></cli-cursor>
+            $ Draw pixels here<cli-cursor></cli-cursor>
         </cli-title>
 
         <dot-area>
@@ -22,15 +23,19 @@
 
         <button-area>
 
-            <button-item onclick="load()">
+            <button-item onmouseenter="playse('btnse')" onclick="load();">
                 <item-label>$ LOAD</item-label>
             </button-item>
 
-            <button-item onclick="copy()">
+            <button-item onmouseenter="playse('btnse')" onclick="copy();">
                 <item-label>$ COPY</item-label>
             </button-item>
 
-            <button-item onclick="remove_item()">
+            <button-item onmouseenter="playse('btnse')" onclick="revert();">
+                <item-label>$ REVERT</item-label>
+            </button-item>
+
+            <button-item onmouseenter="playse('btnse')" onclick="remove_item();">
                 <item-label>$ RESET</item-label>
             </button-item>
 
@@ -43,7 +48,7 @@
             </dialog-title>
             <dialog-content>
             </dialog-content>
-            <dialog-close onclick="close_dialog()">
+            <dialog-close onmouseenter="playse('btnse')" onclick="close_dialog()">
                 <dialog-close-label>$ EXIT</dialog-close-label>
             </dialog-close>
         </dialog-box>

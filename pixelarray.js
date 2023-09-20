@@ -33,6 +33,9 @@ function item_fill(e) {
 }
 
 function remove_item() {
+
+    playse('ckse');
+
     f = document.querySelectorAll("#f");
     f.forEach(item => {
         item.classList.remove("fill");
@@ -40,11 +43,14 @@ function remove_item() {
 }
 
 function load() {
+
+    playse('ckse');
+
     document.querySelector("dialog-title").innerHTML = `$ LOAD<br>$ INSERT ARRAY`;
     document.querySelector("dialog-area").classList.remove("hidden-area");
     document.querySelector("dialog-content").innerHTML = `
     <input type="text" id="varr">
-    <dialog-btn onclick="load_call()">
+    <dialog-btn onmouseenter="playse('btnse')" onclick="load_call()">
         <dialog-btn-label>$ SUBMIT</dialog-btn-label>
     </dialog-btn>
     `;
@@ -52,22 +58,46 @@ function load() {
 
 function draw(result, dot_item, index) {
     setTimeout(() => {
-        if(index != 0) {
+        if(index == 1023) {
             setTimeout(() => {
-            dot_item[index - 1].classList.replace("fill_g", "fill");
+                dot_item[index].classList.replace("fill_g", "fill");
             }, index * 1);
         }
-        if(result == "1")
+
+        if(index != 0) {
+            setTimeout(() => {
+                dot_item[index - 1].classList.replace("fill_g", "fill");
+            }, index * 1);
+        }
+
+        if(result == "1") {
             dot_item[index].classList.add("fill_g");
+            playse("drawse");
+        }
+
+        if(result == "2") {
+            dot_item[index].classList.remove("fill");
+            playse("drawse");
+        }
+
     }, index * 2);
 }
 
 function load_call() {
+
+    playse('ckse');
+
     inx = 0;
     remove_item();
     document.querySelector("cli-interface").classList.add("disable");
 
     varr_full = document.querySelector("#varr").value;
+
+    if(varr_full.length < 2) {
+        document.querySelector("cli-interface").classList.remove("disable");
+        return;
+    }
+
     varr_Y = varr_full.split(",  ");
     varr_Y.forEach((item, index1) => {
         varr_X = item.split(", ");
@@ -86,6 +116,8 @@ function load_call() {
 }
 
 function copy() {
+
+    playse('ckse');
 
     result_array = "";
     content = "";
@@ -127,7 +159,21 @@ function copy() {
     document.body.removeChild(tempInput);
 }
 
+function revert() {
+    playse('ckse');
+    dot_item = document.querySelectorAll("dot-item");
+
+    dot_item.forEach((item, index) => {
+        if(item.classList.contains("fill")) {
+            draw("2", dot_item, index);
+        } else {
+            draw("1", dot_item, index)
+        };
+    });
+}
+
 function close_dialog() {
+    playse('ckse');
     document.querySelector("dialog-area").classList.add("hidden-area");
 }
 
@@ -146,3 +192,8 @@ setInterval(function() {
 }, 1000);
 
 create_dot();
+
+function playse(type) {
+    document.querySelector("#se").src = `./${type}.mp3`;
+    document.querySelector("#se").play();
+}
