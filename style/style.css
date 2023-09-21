@@ -1,3 +1,10 @@
+:root {
+    -bg: #000000;
+    --disable: #ffffff40;
+    --text: #00ff00CF;
+    --border: #00ff00A0;
+}
+
 @font-face {
     font-family: 'clacon2';
     font-style: normal;
@@ -9,7 +16,7 @@ html, body {
     width: 100%;
     height: 100%;
     margin: 0;
-    background: #000000;
+    background: var(--bg);
     font-family: 'clacon2', monospace;
     overflow: hidden;
     user-select: none;
@@ -23,7 +30,7 @@ cli-interface {
     position: absolute;
     width: 50%;
     height: 97%;
-    background: #000000;
+    background: var(--bg);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -116,13 +123,13 @@ button-item {
     width: calc(100% - 10px);
     height: 100%;
     margin: 0 4px;
-    border: 1px solid #ffffff40;
+    border: 1px solid var(--disable);
     transition: 0.1s ease-in-out;
     position: relative;
 }
 
 button-item:hover {
-    border: 1px solid #00ff00A0;
+    border: 1px solid var(--border);
 }
 
 item-label {
@@ -130,7 +137,7 @@ item-label {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ffffff40;
+    color: var(--disable);
     white-space: nowrap;
     font-size: 38px;
     transition: 0.1s ease-in-out;
@@ -138,12 +145,12 @@ item-label {
 
 button-item:hover item-label {
     font-size: 32px;
-    color: #00ff00CF;
+    color: var(--text);
 }
 
 button-item:hover item-label::after {
     content: " ↦";
-    color: #00ff00CF;
+    color: var(--text);
 }
 
 dialog-area {
@@ -176,7 +183,7 @@ dialog-box {
     background: #000;
     width: 768px;
     height: 768px;
-    border: 10px solid #00ff00A0;
+    border: 10px solid var(--border);
     filter: drop-shadow(0 0 36px #001a00FF);
     -webkit-filter: drop-shadow(0 0 36px #001a00FF);
     transition: 0.25s ease-in-out;
@@ -184,7 +191,7 @@ dialog-box {
 
 dialog-title {
     position: absolute;
-    color: #00ff00CF;
+    color: var(--text);
     font-size: 72px;
     margin: 48px;
 }
@@ -205,7 +212,7 @@ dialog-close {
     position: absolute;
     right: 0;
     bottom: 24px;
-    border: 1px solid #ffffff40;
+    border: 1px solid var(--disable);
     transition: 0.1s ease-in-out;
 }
 
@@ -214,28 +221,28 @@ dialog-close-label, dialog-btn-label {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #ffffff40;
+    color: var(--disable);
     font-size: 54px;
     margin-top: 4px;
     transition: 0.1s ease-in-out;
 }
 
 dialog-btn:hover, dialog-close:hover {
-    border: 1px solid #00ff00A0;
+    border: 1px solid var(--border);
 }
 
 dialog-close:hover dialog-close-label, dialog-btn:hover dialog-btn-label {
-    color: #00ff00CF;
+    color: var(--text);
     font-size: 46px;
 }
 
 dialog-close:hover dialog-close-label::after, dialog-btn:hover dialog-btn-label::after {
+    color: var(--text);
     content: " ↦";
-    color: #00ff00CF;
 }
 
 input-label {
-    color: #00ff00CF;
+    color: var(--text);
     font-size: 64px;
 }
 
@@ -244,15 +251,15 @@ input {
     height: 290px;
     background: none;
     outline: none;
-    border: 1px solid #ffffff40;
-    color: #00ff00CF;
+    border: 1px solid var(--disable);
+    color: var(--text);
     font-size: 128px;
     transition: 0.1s ease-in-out;
     font-family: 'clacon2';
 }
 
 input:hover {
-    border: 1px solid #00ff00A0;
+    border: 1px solid var(--border);
 }
 
 dialog-btn {
@@ -260,7 +267,7 @@ dialog-btn {
     width: calc(100% - 2px);
     height: 72px;
     bottom: 0;
-    border: 1px solid #ffffff40;
+    border: 1px solid var(--disable);
     transition: 0.1s ease-in-out;
 }
 
