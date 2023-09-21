@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define BASIC   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-#define BLUE    "\033[34m"
-#define MAGENTA "\033[35m"
-#define CYAN    "\033[36m"
-
-const char *COLOR[] = {BASIC, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN};
+const char *COLOR[] = {
+    "\033[0m",    // BASIC
+    "\033[31m",   // RED
+    "\033[32m",   // GREEN
+    "\033[33m",   // YELLOW
+    "\033[34m",   // BLUE
+    "\033[35m",   // MAGENTA
+    "\033[36m"    // CYAN
+};
 
 /* Clear :
  * 화면을 깔끔하게 지웁니다. */
@@ -18,7 +18,7 @@ void Clear() {
     #ifdef _WIN32
         system("cls");
     #else
-        printf("\033[H\033[J");
+        system("clear");
     #endif
 }
 
@@ -35,7 +35,7 @@ void PixelView(int Pixel[32][32], char Draw_char[]) {
     for(int i = 0; i < 32; i++) {
         for(int j = 0; j < 32; j++) {
             if(Pixel[i][j] >= 1)
-                printf("%s%s%s", COLOR[Pixel[i][j] - 1], Draw_char, BASIC);
+                printf("%s%s%s", COLOR[Pixel[i][j] - 1], Draw_char, COLOR[0]);
             else
                 printf(" ");
         }
