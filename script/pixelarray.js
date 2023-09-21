@@ -55,6 +55,7 @@ function remove_item() {
     f.forEach(item => {
         for(var i = 0; i < 7; i++) {
             item.classList.remove(`c${i + 1}`);
+            item.classList.remove(`atc`);
         }
     });
 }
