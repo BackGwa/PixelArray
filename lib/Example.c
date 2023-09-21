@@ -1,7 +1,8 @@
+#define ANIMATION_DELAY 1000
 #include "PixelArray.h"
 
 int main() {
-    int arr[32][32] = {
+    const int arr[32][32] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},  
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},  
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},  
@@ -36,7 +37,15 @@ int main() {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     };
 
-    PixelView(arr, "■");
+    for(int i = 0; i < 5; i++) {
+        PixelView(arr, "■");
+        Delay(ANIMATION_DELAY);
+        Clear();
+
+        FlashEffect(arr, "■");
+        Delay(ANIMATION_DELAY);
+        Clear();
+    }
 
     return 0;
 }
