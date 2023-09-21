@@ -1,5 +1,5 @@
 :root {
-    -bg: #000000;
+    --bg: #000000;
     --disable: #ffffff40;
     --text: #00ff00CF;
     --border: #00ff00A0;
