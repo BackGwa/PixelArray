@@ -96,7 +96,7 @@ function draw(result, dot_item, index) {
             dot_item[index].classList.remove("c1");
         }
 
-        if((index + 1) % 16 == 0) {
+        if((index + 1) % 32 == 0) {
             playsx(index);
         }
 
