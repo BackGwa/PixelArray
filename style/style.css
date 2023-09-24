@@ -29,7 +29,7 @@ html, body {
 cli-interface {
     position: absolute;
     width: 50%;
-    height: 97%;
+    height: 100%;
     background: var(--bg);
     top: 50%;
     left: 50%;
