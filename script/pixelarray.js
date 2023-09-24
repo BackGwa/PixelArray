@@ -24,8 +24,8 @@ function create_dot_item(){
     });
 }
 
-document.oncontextmenu = (e) => {
-    if (e.target.classList.contains("atc") && e.buttons >= 2) {
+window.oncontextmenu = (e) => {
+    if (e.target.classList.contains("atc")) {
         v = parseInt(e.target.classList[1].substr(-1, 1)) + 1;
         if (v > 7) {
             v = 1;
